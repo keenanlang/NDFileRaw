@@ -101,7 +101,10 @@ asynStatus NDFileRaw::writeFile(NDArray *pArray)
 		return asynError;
 	}
 
-	this->file.write((const char*) pArray->pData, pArray->dims[0].size * pArray->dims[1].size * 2);
+	NDArrayInfo info;
+	pArray->getInfo(&info);
+	
+	this->file.write((const char*) pArray->pData, info.nElements * info.bytesPerElement);
 
 	return asynSuccess;
 }
