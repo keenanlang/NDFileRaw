@@ -167,9 +167,9 @@ extern "C" int NDFileRawConfigure(const char *portName, int queueSize, int block
                                   const char *NDArrayPort, int NDArrayAddr,
                                   int priority, int stackSize)
 {
-  new NDFileRaw(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, priority, stackSize);
+  NDFileRaw* temp = new NDFileRaw(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, priority, stackSize);
   
-  return(asynSuccess);
+  return temp->start();
 }
 
 
