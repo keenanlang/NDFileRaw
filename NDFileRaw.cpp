@@ -114,7 +114,7 @@ asynStatus NDFileRaw::readFile(NDArray **pArray)
   return asynError;
 }
 
-/** Closes the HDF5 file opened with NDFileRaw::openFile 
+/** Closes the file opened with NDFileRaw::openFile 
  */ 
 asynStatus NDFileRaw::closeFile()
 {
@@ -138,7 +138,7 @@ asynStatus NDFileRaw::closeFile()
 }
 
 
-/** Constructor for NDFileHDF5; parameters are identical to those for NDPluginFile::NDPluginFile,
+/** Constructor for NDFileRaw; parameters are identical to those for NDPluginFile::NDPluginFile,
     and are passed directly to that base class constructor.
   * After calling the base class constructor this method sets NDPluginFile::supportsMultipleArrays=1.
   */
@@ -162,7 +162,7 @@ NDFileRaw::NDFileRaw(const char *portName, int queueSize, int blockingCallbacks,
 
 
 
-/** Configuration routine.  Called directly, or from the iocsh function in NDFileEpics */
+/** Configuration routine. */
 extern "C" int NDFileRawConfigure(const char *portName, int queueSize, int blockingCallbacks, 
                                   const char *NDArrayPort, int NDArrayAddr,
                                   int priority, int stackSize)
