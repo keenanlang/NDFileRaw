@@ -75,11 +75,6 @@ asynStatus NDFileRaw::openFile(const char *fileName, NDFileOpenMode_t openMode, 
 		return asynError;
 	}
 	
-	// Write 8192 byte header, currently just zeroes.
-	char header[8192] = {0};
-	
-	this->file.write(header, 8192);
-	
 	return asynSuccess;
 }
 
