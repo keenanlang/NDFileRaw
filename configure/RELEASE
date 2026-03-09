@@ -1,0 +1,23 @@
+#RELEASE Location of external products
+# Run "gnumake clean uninstall install" in the application
+# top directory each time this file is changed.
+
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+
+SUPPORT=/APSshare/epics/synApps_6_3/support
+-include $(SUPPORT)/configure/RELEASE
+
+#AREA_DETECTOR=$(SUPPORT)/areaDetector-R3-13
+-include $(AREA_DETECTOR)/configure/RELEASE_PRODS.local
+
+#ADCORE=$(AREA_DETECTOR)/ADCore
+#ADSUPPORT=$(AREA_DETECTOR)/ADSupport
+
+# EPICS_BASE usually appears last so other apps can override stuff:
+#EPICS_BASE=/APSshare/epics/base-7.0.8
+
+# These lines allow developers to override these RELEASE settings
+# without having to modify this file directly.
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
+-include $(TOP)/configure/RELEASE.local
