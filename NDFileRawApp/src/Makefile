@@ -16,7 +16,7 @@ DBD += NDFileRaw.dbd
 
 LIB_SRCS += NDFileRaw.cpp
 
-NDFileHDF5_Batch_LIBS += $(EPICS_BASE_IOC_LIBS)
+NDFileEDF_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #===========================
 
